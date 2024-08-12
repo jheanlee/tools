@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>A Simple Clock</title>
+    <style type = "text/css">
+      .clock {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class=clock>
+      <p id=clock-text style="font-size:10vw; color: #454545"></p>
+    </div>
+
+    <script type="text/javascript">
+      function getTime() {
+        const dt = new Date();
+        let hour = dt.getHours();
+        let minute = dt.getMinutes();
+        let second = dt.getSeconds();
+        console.log(hour);
+        document.getElementById("clock-text").innerHTML = hour.toString().padStart(2, '0') + ':' + minute.toString().padStart(2, '0') + ':' + second.toString().padStart(2, '0');
+        setTimeout(getTime, 1000)
+      }
+      getTime();
+    </script>
+  </body>
+</html>
